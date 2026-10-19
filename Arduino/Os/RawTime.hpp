@@ -5,7 +5,7 @@
 #ifndef OS_STUB_RAWTIME_HPP
 #define OS_STUB_RAWTIME_HPP
 
-#include "Os/RawTime.hpp"
+#include <Os/RawTime.hpp>
 
 namespace Os {
 namespace Arduino {

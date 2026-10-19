@@ -17,7 +17,7 @@ RawTimeHandle* ArduinoRawTime::getHandle() {
     return &this->m_handle;
 }
 
-RawTime::Status ArduinoRawTime::now() {
+RawTimeInterface::Status ArduinoRawTime::now() {
     U32 milliseconds_now = millis();
     U32 microseconds_now = micros() % 1000000;
     U32 milliseconds_no_seconds = milliseconds_now % 1000;
@@ -30,7 +30,7 @@ RawTime::Status ArduinoRawTime::now() {
     return Status::OP_OK;
 }
 
-RawTime::Status ArduinoRawTime::getTimeInterval(const Os::RawTime& other, Fw::TimeInterval& interval) const {
+RawTimeInterface::Status ArduinoRawTime::getTimeInterval(const Os::RawTime& other, Fw::TimeInterval& interval) const {
     interval.set(0, 0);
     const ArduinoRawTimeHandle& my_handle = this->m_handle;
     const ArduinoRawTimeHandle& other_handle = static_cast<const ArduinoRawTimeHandle&>(*const_cast<Os::RawTime&>(other).getHandle());

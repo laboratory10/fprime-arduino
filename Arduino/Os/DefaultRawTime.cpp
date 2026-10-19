@@ -11,7 +11,7 @@ namespace Os {
 //! \param aligned_new_memory: aligned memory to fill
 //! \param to_copy: pointer to copy-constructor input
 //! \return: pointer to delegate
-RawTimeInterface *RawTimeInterface::getDelegate(RawTimeHandleStorage& aligned_placement_new_memory, const RawTimeInterface* to_copy) {
+RawTimeInterface *RawTimeInterface::getDelegate(RawTimeHandleStorage& aligned_placement_new_memory, const RawTimeInterface* to_copy, Os::RawTimeSource source) {
     return Os::Delegate::makeDelegate<RawTimeInterface, Os::Arduino::ArduinoRawTime, RawTimeHandleStorage>(
             aligned_placement_new_memory, to_copy
     );
